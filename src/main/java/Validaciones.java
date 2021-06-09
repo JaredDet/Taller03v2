@@ -79,4 +79,13 @@ public class Validaciones {
         }
         return true;
     }
+
+    public static boolean validarComputadorVivo(Computador computador){
+
+        if(computador.getModelo() != null || computador.getMarca() != null){
+            System.err.println("El computador ya existe.");
+            return false;
+        }
+        return true;
+    }
 }

@@ -3,9 +3,11 @@ public class VentanaConsola {
     private final Computador computador = new Computador();
 
     public void crearComputador() {
-        computador.setMarca(agregarMarca());
-        computador.setModelo(agregarModelo());
-        crearRAM();
+        if(Validaciones.validarComputadorVivo(computador)) {
+            computador.setMarca(agregarMarca());
+            computador.setModelo(agregarModelo());
+            crearRAM();
+        }
     }
 
     public void modificarComputador() {
@@ -140,9 +142,8 @@ public class VentanaConsola {
         System.out.println("Elija una opción" + "\n");
         System.out.println("[1] Crear el computador");
         System.out.println("[2] Editar el computador");
-        System.out.println("[3] Editar la RAM");
-        System.out.println("[4] Mostrar componentes del computador");
-        System.out.println("[5] Salir" + "\n");
+        System.out.println("[3] Mostrar componentes del computador");
+        System.out.println("[4] Salir" + "\n");
     }
 
     public void iniciar() {
@@ -155,14 +156,13 @@ public class VentanaConsola {
             switch (opcion) {
                 case 1 -> crearComputador();
                 case 2 -> modificarComputador();
-                case 3 -> modificarRAM();
-                case 4 -> mostrarDatosComputador();
-                case 5 -> {
+                case 3 -> mostrarDatosComputador();
+                case 4 -> {
                     System.out.println("Gracias por utilizar el programa");
                     System.out.println("Adiós...");
                 }
                 default -> System.out.println("Fallo al elegir la opción");
             }
-        } while (opcion != 5);
+        } while (opcion != 4);
     }
 }

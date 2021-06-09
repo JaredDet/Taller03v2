@@ -99,6 +99,14 @@ class ValidacionesTest {
     }
 
     @Test
+    @DisplayName("Test para verificar que si un computador existe, no se puede crear otro")
+    void computadorExistente() {
+        Computador computador = new Computador();
+        computador.setModelo("Vx_15");
+        computador.setMarca("Acer");
+        assertFalse(Validaciones.validarComputadorVivo(computador));
+    }
+    @Test
     @DisplayName("Test para verificar capacidad GB negativa")
     void capacidadGBVacia() {
 
